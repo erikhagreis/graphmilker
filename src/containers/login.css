@@ -1,0 +1,13 @@
+
+.login {
+  left: 50%;
+  max-width: 350px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;  
+}
+
+.login__text--alert {
+  color: rgb(247, 17, 17);
+}

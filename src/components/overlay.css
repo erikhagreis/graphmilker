@@ -1,0 +1,37 @@
+
+.overlay {
+  background-color: rgba(0,0,0,.6);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.overlay__inner {
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+
+.overlay__inner:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  margin-right: -.25rem;
+  vertical-align: middle;
+}
+
+.overlay__content {
+  box-shadow: 0 0 10px rgba(0,0,0,0.3), 0px 4px 10px rgba(0,0,0,0.3);
+  display: inline-block;
+  margin: 50px 0;
+  max-width: 500px;
+  position: relative;
+  vertical-align: middle;
+  width: 95%;
+}

@@ -1,0 +1,23 @@
+{
+  "config": {
+    "pending": false,
+    "appId": "1000690343378486",
+    "pageName": "dewolfficial"
+  },
+  "authentication": {
+    "pending": false,
+    "status": "connected",
+    "authResponse": {
+      "accessToken": "...",
+      "expiresIn": "...",
+      "signedRequest": "...",
+      "userID": "..."
+    }
+  },
+  "pageInfo": {
+
+  },
+  "posts": [
+    
+  ]
+}

@@ -1,0 +1,29 @@
+.graphmilker {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  min-height: 500px;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+.graphmilker__title {
+  background-color: rgb(43, 80, 80);
+  color: #fff;
+  flex-basis: auto;
+  flex-grow: 0;
+  font-size: 1.1em;
+  margin: 0;
+  padding: 10px 20px;
+}
+
+.graphmilker__main {
+  background-color: rgb(226, 243, 242);
+  flex-basis: auto;
+  flex-grow: 1;
+  margin: 0;
+  padding: 10px 20px 20px;
+  position: relative;
+}

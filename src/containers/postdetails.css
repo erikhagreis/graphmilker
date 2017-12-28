@@ -1,0 +1,38 @@
+.postDetails {
+
+}
+
+.postDetails__header {
+  display: flex;
+}
+
+.postDetails__title {
+  flex-grow: 1;
+}
+
+.postDetails__postDate {
+  margin-left: 10px;
+}
+
+.postDetails__buttons {
+  flex-grow: 0;
+}
+
+.postDetails__buttons .button {
+  margin-left: 10px;
+}
+
+.postDetails__body {
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin: 0 -20px;
+  padding: 0 20px;
+}
+
+.postDetails__imageFrame {
+  margin: 0 -20px -20px;
+  font-size: 0;
+}
+
+.postDetails__image { 
+  width: 100%;
+}
