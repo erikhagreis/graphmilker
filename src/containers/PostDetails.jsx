@@ -26,7 +26,7 @@ class PostDetails extends Component {
   }
 
   render() {
-    const { selectThisPost, goBack, post } = this.props;
+    const { selectPost, goBack, post } = this.props;
 
     return <div className="postDetails">
       <div className="postDetails__header">
@@ -35,7 +35,7 @@ class PostDetails extends Component {
           <span className="postDetails__postDate">posted {readableCreatedTime(post.created_time)}</span>
         </h2>
         <div className="postDetails__buttons">
-          <Button onClick={() => selectThisPost(post.id)}>
+          <Button onClick={() => selectPost(post.id)}>
             ✓ select this post
           </Button> 
           <Button onClick={goBack}>
@@ -62,11 +62,10 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   loadDetails: (id) => actions.api.getPostDetails(id),
   goBack: () => actions.switchView('posts'),
-  selectThisPost: (id) => actions.selectPost(id)
+  selectPost: (id) => actions.selectPost(id)
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PostDetails);
-

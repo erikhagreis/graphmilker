@@ -1,43 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import thunkMiddleware from 'redux-thunk'
-import { createLogger } from 'redux-logger'
+import bootApp from './app';
 
-import reducer from './reducers';
-import actions from './actions';
-import Overlay from './components/Overlay';
-import GraphMilker from './containers/GraphMilker';
+let config = {};
 
-import './index.css';
+function getRootElement() {
+  return document.getElementById('graphmilker');
+}
 
-const config = {
-  appId: '1000690343378486',
-  pageName: 'dewolfficial',
-};
-
-const store = createStore(reducer, {},
-  applyMiddleware(
-    thunkMiddleware,
-    createLogger()
-  ));
+function createApp() {
+  const element = document.createElement('div');
+  element.id = 'graphmilker';
+  document.body.appendChild(element);
   
-store.dispatch(actions.initApp(config))
-  .then(() => store.dispatch(actions.getLoginStatus()))
-  .then(() => {
-    if (store.getState().authentication.status === 'connected') {
-      return store.dispatch(actions.switchView('posts'));
-    } else {
-      return store.dispatch(actions.switchView('login'));
-    }
-  });
+  bootApp(element, config);
+}
 
-ReactDOM.render(
-  <Provider store={store}>
-    <Overlay>
-      <GraphMilker />
-    </Overlay>
-  </Provider>, 
-  document.getElementById('root')
-);
+function hide() {
+  const element = getRootElement();
+  element.style.display = 'none';
+}
+
+function show() {
+  const element = getRootElement();
+  if (element) {
+    element.style.display = 'block';
+  } else {
+    createApp();
+  }
+}
+
+function setConfig(configObj) {
+  config = configObj;
+}
+
+window.graphmilker = {
+  hide,
+  setConfig,
+  show
+};

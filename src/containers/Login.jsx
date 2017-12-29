@@ -7,12 +7,10 @@ import Button from '../components/Button';
 import './login.css';
 
 const mapStateToProps = (state, ownProps) => ({
-  ...ownProps,
   loginRejected: state.authentication.status === 'rejected'
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  ...ownProps,
   onLogin: (e) => {
     e.preventDefault();
     dispatch(actions.login())

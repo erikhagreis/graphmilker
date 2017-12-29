@@ -48,7 +48,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  getPosts: actions.api.getPosts,
+  getPosts: () => actions.api.getPosts(),
   selectPost: (postId) => actions.switchView('postDetails', postId)
 };
 

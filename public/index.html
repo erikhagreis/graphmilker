@@ -22,19 +22,49 @@
     <title>GraphMilker&trade;</title>
   </head>
   <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <style>
+      *, *::before, *::after {
+        box-sizing: border-box;  
+      }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+    </style>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <section class="example">
+      <h1>Example implementation of Graphmilker</h1>
+      <p>
+        <button id="startButton">Open Graphmilker</button>
+      </p>
+    </section>
+
+    <script>
+      function implementGraphmilker() {
+        window.graphmilker.setConfig({
+          appId: '1000690343378486',
+          pageName: 'dewolfficial',
+          onPostSelectedCallback: onPostSelected
+        });
+        
+        document
+          .getElementById('startButton')
+          .addEventListener('click', function(e) {
+            window.graphmilker.show();
+          });      
+
+        function onPostSelected(postData) {
+          console.log('onPostSelected', postData);
+        }
+
+        if (/test/.test(document.location.search)) {
+          window.graphmilker.show();
+        }
+      }
+
+      window.addEventListener('load', implementGraphmilker);
+    </script>    
   </body>
 </html>
