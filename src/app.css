@@ -1,5 +1,7 @@
-*, *::before, *::after {
-  box-sizing: border-box;  
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
@@ -10,7 +12,7 @@ body {
 
 .label {
   padding: 2px 6px;
-  background-color: rgba(0,0,0,.4);
+  background-color: rgba(0, 0, 0, 0.4);
   color: #fff;
   border-radius: 2px;
   font-size: 12px;

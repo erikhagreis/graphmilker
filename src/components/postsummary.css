@@ -1,8 +1,8 @@
-.postSummary { 
+.postSummary {
   appearance: none;
   background: none;
   border: none;
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
   display: flex;
   font-size: 1em;
@@ -17,7 +17,7 @@
 .postSummary:focus,
 .postSummary:hover {
   outline: none;
-  background-color: rgba(255,255,255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .postSummary__label {

@@ -10,7 +10,7 @@ function createApp() {
   const element = document.createElement('div');
   element.id = 'graphmilker';
   document.body.appendChild(element);
-  
+
   bootApp(element, config);
 }
 

@@ -1,6 +1,5 @@
-
 .overlay {
-  background-color: rgba(0,0,0,.6);
+  background-color: rgba(0, 0, 0, 0.6);
   bottom: 0;
   left: 0;
   position: fixed;
@@ -22,12 +21,12 @@
   content: '';
   display: inline-block;
   height: 100%;
-  margin-right: -.25rem;
+  margin-right: -0.25rem;
   vertical-align: middle;
 }
 
 .overlay__content {
-  box-shadow: 0 0 10px rgba(0,0,0,0.3), 0px 4px 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0px 4px 10px rgba(0, 0, 0, 0.3);
   display: inline-block;
   margin: 50px 0;
   max-width: 500px;

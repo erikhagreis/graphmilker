@@ -1,7 +1,8 @@
 import './graphmilker.css';
 
-import React, { Component }  from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import Initialising from '../components/Initialising';
 import Login from './Login';
 import PostList from './PostList';
@@ -19,16 +20,16 @@ class GraphMilker extends Component {
     const getView = () => {
       switch (viewName) {
         case 'postDetails':
-          return <PostDetails/>
+          return <PostDetails />;
 
         case 'posts':
-          return <PostList/>;
-    
+          return <PostList />;
+
         case 'login':
-          return <Login/>;
-    
+          return <Login />;
+
         default:
-          return <Initialising/>;
+          return <Initialising />;
       }
     };
 
@@ -37,13 +38,11 @@ class GraphMilker extends Component {
         <h1 className="graphmilker__title">
           GraphMilker {pageName && `for '${pageName}'`}
         </h1>
-        <div className="graphmilker__main">
-          {getView()}
-        </div>
+        <div className="graphmilker__main">{getView()}</div>
       </div>
     );
   }
-};
+}
 
 const mapState = (state, ownProps) => ({
   pageName: state.config.pageName,
@@ -54,7 +53,4 @@ const mapActions = {
   boot: actions.boot
 };
 
-export default connect(
-  mapState,
-  mapActions
-)(GraphMilker);
+export default connect(mapState, mapActions)(GraphMilker);

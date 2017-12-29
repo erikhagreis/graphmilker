@@ -1,10 +1,9 @@
-export default (postId) => 
-  (dispatch, getState) => { 
-    dispatch({
-      type: 'SELECT_POST',
-      payload: { postId }
-    });
+export default postId => (dispatch, getState) => {
+  dispatch({
+    type: 'SELECT_POST',
+    payload: { postId }
+  });
 
-    const post = getState().posts.items.find((post) => post.id === postId);
-    getState().config.onPostSelectedCallback(post);
-  };
+  const post = getState().posts.items.find(post => post.id === postId);
+  getState().config.onPostSelectedCallback(post);
+};
