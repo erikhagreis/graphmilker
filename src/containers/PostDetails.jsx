@@ -2,10 +2,23 @@ import './postdetails.css';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import fbText2html from 'fb-text2html';
+import moment from 'moment';
 
-import * as format from '../shared/stringformatters';
 import actions from '../actions';
 import Button from '../components/Button';
+
+const readableCreatedTime = (createdTime) => {
+  let now = moment()
+  var then = moment(createdTime)
+  var diff = now.diff(then, 'days')
+
+  if (diff < 1) {
+    return then.fromNow()
+  } else {
+    return then.format('MMMM Do YYYY')
+  }
+};
 
 class PostDetails extends Component {
   componentDidMount() {
@@ -19,7 +32,7 @@ class PostDetails extends Component {
       <div className="postDetails__header">
         <h2 className="postDetails__title sectionTitle">
           <span className="postDetails__label label">{post.type}</span>
-          <span className="postDetails__postDate">posted {format.readableCreatedTime(post.created_time)}</span>
+          <span className="postDetails__postDate">posted {readableCreatedTime(post.created_time)}</span>
         </h2>
         <div className="postDetails__buttons">
           <Button onClick={() => selectThisPost(post.id)}>
@@ -31,7 +44,7 @@ class PostDetails extends Component {
         </div>
       </div>
       <div className="postDetails__body" dangerouslySetInnerHTML={{
-        __html: format.messageToHtml(post.message, post.message_tags)
+        __html: fbText2html(post.message, post.message_tags)
       }}>
       </div>
       <div className="postDetails__imageFrame">
@@ -56,3 +69,4 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(PostDetails);
+

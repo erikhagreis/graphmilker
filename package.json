@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "autolinker": "^1.6.0",
+    "fb-text2html": "^0.1.1",
     "history": "^4.7.2",
     "moment": "^2.20.1",
     "react": "^16.0.0",
