@@ -19,52 +19,72 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <link rel="stylesheet" href="docs.css">
     <title>GraphMilker&trade;</title>
   </head>
   <body>
-    <style>
-      *, *::before, *::after {
-        box-sizing: border-box;  
-      }
 
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-      }
-    </style>
-
-    <section class="example">
-      <h1>Example implementation of Graphmilker</h1>
-      <p>
-        <button id="startButton">Open Graphmilker</button>
-      </p>
+    <section class="docs">
+      <h1 class="docs__header">Demo for Graphmilker</h1>
+      <div class="docs__body">
+        <p>
+          Here's an example implementation for Graphmilker. Click on the button below to open GraphMilker. To automatically open Graphmilker on load, add query-parameter <code>?auto-spawn-graphmilker</code>. Or <a href="./?auto-spawn-graphmilker">click here</a>.
+        </p>
+        <p>
+          <button class="docs__btn" id="startButton">Open Graphmilker</button>
+        </p>
+        <p>
+          <div class="postJSON" id="postJSON"></div>
+        </p>
+      </div>
     </section>
 
     <script>
-      function implementGraphmilker() {
+      // Run when document ready
+      window.addEventListener('load', function() {
+
+        // Set the config of the Graphmilker
         window.graphmilker.setConfig({
-          appId: '1000690343378486',
+
+          // An appId is obtained from https://developers.facebook.com
+          // "My Apps" (top right) → "Add a New app"
+          //
+          // Example given here is a test Graphmilker app, working for sites running on localhost
+          // Feel free to use it while testing / developing.
+          appId: '156444731650308',
+
+          // The name of the FB page to browse. Taken from it's url; ie:
+          // https://www.facebook.com/dewolfficial
           pageName: 'dewolfficial',
-          onPostSelectedCallback: onPostSelected
+
+          // Callback to be invoked after a post has been selected
+          onPostSelectedCallback: function(post) {
+            showPost(post);
+            window.graphmilker.hide();
+          }
         });
         
+        // Convert a click on a button to a call to window.graphmilker.show();
         document
           .getElementById('startButton')
           .addEventListener('click', function(e) {
             window.graphmilker.show();
           });      
 
-        function onPostSelected(postData) {
-          console.log('onPostSelected', postData);
+        // Do something with the incoming post data. 
+        // Here it's just displayed in a box; typically you'd take the data and insert it into the CMS 
+        // database, so it will be accessible later on without any Facebook authorisation.
+        function showPost(postData) {
+          var postJSONel = document.getElementById('postJSON');
+          postJSONel.innerHTML = 
+            '<code class="code js">' + JSON.stringify(postData, true, 2) + '</code>';
         }
 
-        if (/test/.test(document.location.search)) {
+        // Automatically spawn for development purposes
+        if (/auto-spawn-graphmilker/.test(document.location.search)) {
           window.graphmilker.show();
         }
-      }
-
-      window.addEventListener('load', implementGraphmilker);
+      });
     </script>    
   </body>
 </html>

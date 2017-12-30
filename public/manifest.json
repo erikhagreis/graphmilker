@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Graphmilker",
+  "name": "Graphmilker, browse and choose a post from a Facebook timeline of your choice",
   "icons": [
     {
       "src": "favicon.ico",
