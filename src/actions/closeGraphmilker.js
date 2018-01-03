@@ -1,3 +1,5 @@
+import switchView from './switchView';
+
 export default () => 
   (dispatch) => {
     dispatch({
@@ -5,4 +7,6 @@ export default () =>
     });
 
     window.graphmilker.hide();
+
+    dispatch(switchView('posts'));
   };

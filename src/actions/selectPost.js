@@ -1,5 +1,4 @@
 import closeGraphmilker from './closeGraphmilker';
-import switchView from './switchView';
 
 export default postId => 
   (dispatch, getState) => {
@@ -12,5 +11,4 @@ export default postId =>
     getState().config.onPostSelectedCallback(post);
 
     dispatch(closeGraphmilker());
-    dispatch(switchView('posts'));
   };
