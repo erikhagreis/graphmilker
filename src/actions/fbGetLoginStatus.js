@@ -1,13 +1,11 @@
-/**
- * Proxy to FB.getLoginStatus.
- * @see: https://developers.facebook.com/docs/reference/javascript/FB.getLoginStatus
- */
+import * as Facebook from 'fb-sdk-wrapper';
+
 export default (noCache = false) => {
   return dispatch => {
     dispatch({ type: 'GET_LOGIN_STATUS_REQUEST' });
 
-    return new Promise((resolve, reject) => {
-      window.FB.getLoginStatus(response => {
+    return Facebook.getLoginStatus()
+      .then(response => {
         dispatch({
           type: 'GET_LOGIN_STATUS_RESPONSE',
           payload: {
@@ -15,8 +13,7 @@ export default (noCache = false) => {
             ...response.authResponse
           }
         });
-        resolve(response);
+        return response;
       }, noCache);
-    });
   };
 };

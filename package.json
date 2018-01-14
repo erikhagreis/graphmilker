@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "fb-sdk-wrapper": "^0.2.0",
     "fb-text2html": "^0.1.3",
     "history": "^4.7.2",
     "moment": "^2.20.1",

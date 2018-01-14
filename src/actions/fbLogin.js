@@ -1,14 +1,11 @@
-/**
- * Proxy to FB.login.
- * @see: https://developers.facebook.com/docs/reference/javascript/FB.login
- */
+import * as Facebook from 'fb-sdk-wrapper';
 
 export default () => {
   return dispatch => {
     dispatch({ type: 'LOGIN_REQUEST' });
 
-    return new Promise((resolve, reject) => {
-      window.FB.login(response => {
+    return Facebook.login()
+      .then((response) => {
         dispatch({
           type: 'LOGIN_RESPONSE',
           payload: {
@@ -16,8 +13,7 @@ export default () => {
             ...response.authResponse
           }
         });
-        resolve(response);
+        return response;
       });
-    });
   };
 };
