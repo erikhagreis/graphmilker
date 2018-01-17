@@ -7,6 +7,8 @@ import moment from 'moment';
 
 import actions from '../actions';
 import Button from '../components/Button';
+import PostImage from '../components/PostImage';
+import PostVideo from '../components/PostVideo';
 
 const readableCreatedTime = createdTime => {
   let now = moment();
@@ -23,6 +25,21 @@ const readableCreatedTime = createdTime => {
 class PostDetails extends Component {
   componentDidMount() {
     this.props.loadDetails(this.props.postId);
+  }
+
+  getVisual() {
+    const { post } = this.props;
+    if (post.type === 'video') {
+      if (post.link) {
+        return (
+          <PostVideo iframeUrl={post.link} />
+        );
+      }
+    } else if (post.full_picture) {
+      return (
+        <PostImage imageUrl={post.full_picture} />
+      );
+    }
   }
 
   render() {
@@ -51,7 +68,7 @@ class PostDetails extends Component {
           }}
         />
         <div className="postDetails__imageFrame">
-          <img className="postDetails__image" src={post.full_picture} alt="" />
+          {this.getVisual()}
         </div>
       </div>
     );
