@@ -1,7 +1,7 @@
 {
   "name": "graphmilker",
   "description": "Small tool which lets you browse a Facebook page's posts, and select one for use somewhere else.",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "repository": "https://github.com/erikhagreis/graphmilker",
   "author": "Erik Hagreis",
   "keywords": [
