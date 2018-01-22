@@ -1,7 +1,17 @@
 {
   "name": "graphmilker",
+  "description": "Small tool which lets you browse a Facebook page's posts, and select one for use somewhere else.",
   "version": "0.1.0",
-  "private": true,
+  "repository": "https://github.com/erikhagreis/graphmilker",
+  "author": "Erik Hagreis",
+  "keywords": [
+    "facebook",
+    "graph",
+    "milker",
+    "tool",
+    "browser-only"
+  ],
+  "homepage": ".",
   "dependencies": {
     "fb-sdk-wrapper": "^0.2.0",
     "fb-text2html": "^0.1.3",
@@ -26,7 +36,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "npm run build"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
