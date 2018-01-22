@@ -1,13 +1,14 @@
-.overlay {
+.gm-overlay {
   background-color: rgba(0, 0, 0, 0.6);
   bottom: 0;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
+  z-index: 1000000;
 }
 
-.overlay__inner {
+.gm-overlay__inner {
   bottom: 0;
   left: 0;
   overflow: auto;
@@ -17,7 +18,7 @@
   top: 0;
 }
 
-.overlay__inner:before {
+.gm-overlay__inner:before {
   content: '';
   display: inline-block;
   height: 100%;
@@ -25,7 +26,7 @@
   vertical-align: middle;
 }
 
-.overlay__content {
+.gm-overlay__content {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), 0px 4px 10px rgba(0, 0, 0, 0.3);
   display: inline-block;
   margin: 50px 0;
@@ -35,7 +36,7 @@
   width: 95%;
 }
 
-.overlay__closeButton {
+.gm-overlay__closeButton {
   appearance: none;
   border: none;
   background-color: rgba(255,255,255,0.3);
@@ -50,13 +51,13 @@
   line-height: 44px;
 }
 
-.overlay__closeButton:hover,
-.overlay__closeButton:focus {
+.gm-overlay__closeButton:hover,
+.gm-overlay__closeButton:focus {
   background-color: rgba(255,255,255,0.45);
   outline: none;
 }
 
-.overlay__closeButton span {
+.gm-overlay__closeButton span {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute;
   height: 1px;

@@ -1,6 +1,7 @@
 
 
 const autoprefixer = require('autoprefixer');
+const selectorprefixer = require('postcss-prefix-selector');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -193,6 +194,9 @@ module.exports = {
                         ident: 'postcss',
                         plugins: () => [
                           require('postcss-flexbugs-fixes'),
+                          selectorprefixer({
+                            prefix: '#graphmilker'
+                          }),
                           autoprefixer({
                             browsers: [
                               '>1%',

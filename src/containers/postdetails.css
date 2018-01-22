@@ -1,33 +1,33 @@
-.postDetails {
+.gm-postDetails {
 }
 
-.postDetails__header {
+.gm-postDetails__header {
   display: flex;
 }
 
-.postDetails__title {
+.gm-postDetails__title {
   flex-grow: 1;
 }
 
-.postDetails__postDate {
+.gm-postDetails__postDate {
   margin-left: 10px;
 }
 
-.postDetails__buttons {
+.gm-postDetails__buttons {
   flex-grow: 0;
 }
 
-.postDetails__buttons .button {
+.gm-postDetails__buttons .gm-button {
   margin-left: 10px;
 }
 
-.postDetails__body {
+.gm-postDetails__body {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   margin: 0 -20px;
   padding: 0 20px;
 }
 
-.postDetails__imageFrame {
+.gm-postDetails__imageFrame {
   margin: 0 -20px -20px;
   font-size: 0;
   line-height: 0;

@@ -1,4 +1,4 @@
-.button {
+.gm-button {
   background: rgba(255, 255, 255, 0.5);
   border-radius: 0;
   border: 1px solid rgba(0, 0, 0, 0.7);
@@ -6,8 +6,8 @@
   cursor: pointer;
 }
 
-.button:focus,
-.button:hover {
+.gm-button:focus,
+.gm-button:hover {
   outline: none;
   background: rgba(255, 255, 255, 0.95);
 }

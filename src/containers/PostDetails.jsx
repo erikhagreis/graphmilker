@@ -46,15 +46,15 @@ class PostDetails extends Component {
     const { selectPost, goBack, post } = this.props;
 
     return (
-      <div className="postDetails">
-        <div className="postDetails__header">
-          <h2 className="postDetails__title sectionTitle">
-            <span className="postDetails__label label">{post.type}</span>
-            <span className="postDetails__postDate">
+      <div className="gm-postDetails">
+        <div className="gm-postDetails__header">
+          <h2 className="gm-postDetails__title gm-sectionTitle">
+            <span className="gm-postDetails__label gm-label">{post.type}</span>
+            <span className="gm-postDetails__postDate">
               posted {readableCreatedTime(post.created_time)}
             </span>
           </h2>
-          <div className="postDetails__buttons">
+          <div className="gm-postDetails__buttons">
             <Button onClick={() => selectPost(post.id)}>
               ✓ select this post
             </Button>
@@ -62,12 +62,12 @@ class PostDetails extends Component {
           </div>
         </div>
         <div
-          className="postDetails__body"
+          className="gm-postDetails__body"
           dangerouslySetInnerHTML={{
             __html: fbText2html(post.message, post.message_tags)
           }}
         />
-        <div className="postDetails__imageFrame">
+        <div className="gm-postDetails__imageFrame">
           {this.getVisual()}
         </div>
       </div>

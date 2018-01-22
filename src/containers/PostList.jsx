@@ -21,13 +21,13 @@ class PostList extends Component {
     } = this.props;
 
     return (
-      <div className="postlist">
-        <h2 className="postlist__title sectionTitle">
+      <div className="gm-postlist">
+        <h2 className="gm-postlist__title gm-sectionTitle">
           Select a post from the list:
         </h2>
-        <ul className="postlist__list">
+        <ul className="gm-postlist__list">
           {items.map(post => (
-            <li className="postlist__item" key={post.id}>
+            <li className="gm-postlist__item" key={post.id}>
               <PostSummary
                 postData={post}
                 selectPost={() => selectPost(post.id)}
@@ -35,7 +35,7 @@ class PostList extends Component {
             </li>
           ))}
           {cursors.after && (
-            <li className="postlist__item postlist__item--loadMore">
+            <li className="gm-postlist__item gm-postlist__item--loadMore">
               <Button onClick={() => getPosts()}>Load more posts</Button>
             </li>
           )}

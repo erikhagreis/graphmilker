@@ -24,19 +24,19 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 const Login = ({ onLogin, loginRejected }) => {
   const getWarning = () => {
     if (loginRejected) {
-      return <p className="login__text login__text--alert">Try again!</p>;
+      return <p className="gm-login__text gm-login__text--alert">Try again!</p>;
     }
     return '';
   };
 
   return (
-    <div className="login">
-      <h2 className="login__title sectionTitle">Let's get started!</h2>
-      <p className="login__text">
+    <div className="gm-login">
+      <h2 className="gm-login__title gm-sectionTitle">Let's get started!</h2>
+      <p className="gm-login__text">
         Please login to Facebook &amp; authorise this app. Nothing bad will
         happen, we promise!
       </p>
-      <p className="login__text">
+      <p className="gm-login__text">
         <Button onClick={onLogin}>Login &amp; Authorise</Button>
       </p>
       {getWarning()}

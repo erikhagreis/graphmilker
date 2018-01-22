@@ -1,4 +1,4 @@
-.postSummary {
+.gm-postSummary {
   appearance: none;
   background: none;
   border: none;
@@ -14,17 +14,17 @@
   width: 100%;
 }
 
-.postSummary:focus,
-.postSummary:hover {
+.gm-postSummary:focus,
+.gm-postSummary:hover {
   outline: none;
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-.postSummary__label {
+.gm-postSummary__label {
   flex-grow: 0;
 }
 
-.postSummary__headline {
+.gm-postSummary__headline {
   flex-grow: 1;
   margin: 0 0 0 15px;
   overflow: hidden;

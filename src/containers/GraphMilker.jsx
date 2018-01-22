@@ -34,11 +34,11 @@ class GraphMilker extends Component {
     };
 
     return (
-      <div className="graphmilker">
-        <h1 className="graphmilker__title">
+      <div className="gm-graphmilker">
+        <h1 className="gm-graphmilker__title">
           GraphMilker {pageName && `for '${pageName}'`}
         </h1>
-        <div className="graphmilker__main">{getView()}</div>
+        <div className="gm-graphmilker__main">{getView()}</div>
       </div>
     );
   }

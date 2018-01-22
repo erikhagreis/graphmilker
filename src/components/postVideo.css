@@ -1,11 +1,11 @@
 
-.postVideo {
+.gm-postVideo {
   padding-top: 56.25%;
   position: relative;
   width: 100%;
 }
 
-.postVideo__iframe {
+.gm-postVideo__iframe {
   height: 100%;
   left: 0;
   position: absolute;

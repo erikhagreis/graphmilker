@@ -3,10 +3,11 @@ import React from 'react';
 
 export default ({ iframeUrl = '' }) => {
   return (
-    <div className="postVideo">
+    <div className="gm-postVideo">
       <iframe 
+        title="facebook post embedded video"
         src={parseYoutubeLinks(iframeUrl)}
-        className="postVideo__iframe" 
+        className="gm-postVideo__iframe" 
         scrolling="no" frameBorder="0" allowFullScreen="true">
       </iframe>
     </div>
