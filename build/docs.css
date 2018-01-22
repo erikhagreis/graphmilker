@@ -1,0 +1,75 @@
+*, *::before, *::after {
+  box-sizing: border-box;  
+}
+
+body {
+  background: rgba(7, 199, 224, 0.01);
+  font-family: sans-serif;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0;
+  padding: 15px;
+}
+
+.docs {
+  background: hsla(187, 72%, 52%, 0.03);
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.2);
+  margin: 50px auto;
+  max-width: 820px;
+}
+
+.docs__header {
+  background: rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  font-size: 15px;
+  margin: 0;
+  padding: 5px 15px;
+  width: 100%;
+}
+
+.docs__body {
+  padding: 0 15px;
+}
+
+.docs__btn {
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-size: 13px;
+}
+
+p {
+  margin: 15px 0;
+}
+
+.postJSON {
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.2);
+  display: none;
+  overflow: scroll;
+  padding: 20px 10px 10px;
+  position: relative;
+  width: 100%;
+}
+
+.postJSON:before {
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  content: 'JSON';
+  font-size: 10px;
+  left: 0;
+  line-height: 15px;
+  padding: 2px 5px;
+  position: absolute;
+  top: 0;
+}
+
+.postJSON:not(:empty) {
+  display: block;
+}
+
+
+.postJSON .code.js {
+  white-space: pre;
+  font-size: 13px;
+}
