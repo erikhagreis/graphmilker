@@ -31,6 +31,12 @@ function parseYoutubeLinks (iframeUrl ) {
     } 
   }
 
+  // ie: "https://www.facebook.com/dewolfficial/videos/10155244064642205/"
+  const [ , facebookVideoId ] = iframeUrl.match(/facebook\.com\/.+\/videos\/(\d+)/) || [];
+  if (facebookVideoId) {
+    return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(iframeUrl)}&show_text=0&width=560`;
+  }
+
   return iframeUrl;
 }
 
