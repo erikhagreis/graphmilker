@@ -8,6 +8,7 @@ import moment from 'moment';
 import actions from '../actions';
 import Button from '../components/Button';
 import PostImage from '../components/PostImage';
+import PostLinkBlock from '../components/PostLinkBlock'
 import PostVideo from '../components/PostVideo';
 
 const readableCreatedTime = createdTime => {
@@ -29,12 +30,23 @@ class PostDetails extends Component {
 
   getVisual() {
     const { post } = this.props;
-    if (post.type === 'video') {
+    if (!post.detailsLoaded) {
+      return undefined;
+    } else if (post.type === 'video') {
       if (post.link) {
         return (
           <PostVideo iframeUrl={post.link} />
         );
       }
+    } else if(post.type === 'link') {
+      return (
+        <PostLinkBlock 
+          imageUrl={post.full_picture} 
+          title={post.og_title} 
+          description={post.og_description}
+          linkUrl={post.og_url}
+        />
+      )
     } else if (post.full_picture) {
       return (
         <PostImage imageUrl={post.full_picture} />
@@ -58,7 +70,9 @@ class PostDetails extends Component {
             <Button onClick={() => selectPost(post.id)}>
               ✓ select this post
             </Button>
-            <Button onClick={goBack}>◀ back</Button>
+            <Button onClick={goBack}>
+              ◀ back
+            </Button>
           </div>
         </div>
         <div

@@ -36,9 +36,9 @@ export default (state = { items: [] }, action) => {
         items:
           postIndex > -1
             ? // replace the existing post object with the incoming one (should be always the case)
-              immutableSplice(state.items, postIndex, 1, action.payload)
+              immutableSplice(state.items, postIndex, 1, { detailsLoaded: true, ...action.payload })
             : // backup scenario: add the incoming post object to the list
-              [...state.items, action.payload]
+              [...state.items,  { detailsLoaded: true, ...action.payload }]
       };
 
     default:

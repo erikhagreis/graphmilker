@@ -1,0 +1,29 @@
+.gm-postLinkBlock {
+  border: 1px solid rgba(0,0,0,0.25);
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+  color: #000;
+  display: block;
+  margin: 10px;
+  text-decoration: none;
+}
+.gm-postLinkBlock__image {
+  width: 100%;
+}
+.gm-postLinkBlock__text {
+  padding: 5px 10px;
+}
+.gm-postLinkBlock__title {
+  margin: 5px 0;
+  font-family: Georgia, Times, 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: normal;
+}
+.gm-postLinkBlock__description {
+  margin: 5px 0;
+}
+.gm-postLinkBlock__domain {
+  color: rgba(0,0,0,0.6);
+  font-size: 12px;
+  margin: 0;
+  text-transform: uppercase;
+}
