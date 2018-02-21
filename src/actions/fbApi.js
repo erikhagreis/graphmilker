@@ -1,4 +1,4 @@
-import { get } from 'lodash';
+import { get, pick, reduce, set } from 'lodash';
 import * as Facebook from 'fb-sdk-wrapper';
 
 export const getPosts = () => {
@@ -40,10 +40,35 @@ export const getPostDetails = postId => {
           const error = response.error || 'Error occured in getPostDetails';
           dispatch({ type: 'GET_POST_DETAILS_ERROR', error });
           throw error;
-        } else {
-          dispatch({ type: 'GET_POST_DETAILS_RESPONSE', payload: response });
-          return response;
+        } else if (response.type === 'link') {
+          return scrapeUrl(response.link)
+            .then(fullGraphMeta => {
+              const graphMeta = reduce(
+                pick(fullGraphMeta, [ 'title', 'description', 'url' ] ),
+                (obj, value, key) => {
+                  set(obj, `og_${key}`, value);
+                  return obj;
+                },
+                {}
+              );
+              return {
+                ...response,
+                ...graphMeta
+              };
+            });
         }
+        return response;
+      })
+      .then((payload) => {
+        dispatch({ type: 'GET_POST_DETAILS_RESPONSE', payload });
+        return payload;
       });
   };
 };
+
+function scrapeUrl(url) {
+  return Facebook.api('/', 'post', {
+    'scrape': true,
+    'id': url
+  });
+}
