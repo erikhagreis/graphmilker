@@ -25,7 +25,7 @@ const readableCreatedTime = createdTime => {
 
 class PostDetails extends Component {
   componentDidMount() {
-    this.props.loadDetails(this.props.postId);
+    this.props.ensureDetails(this.props.postId);
   }
 
   getVisual() {
@@ -95,7 +95,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  loadDetails: id => actions.api.getPostDetails(id),
+  ensureDetails: id => actions.ensureDetails(id),
   goBack: () => actions.switchView('posts'),
   selectPost: id => actions.selectPost(id)
 };
