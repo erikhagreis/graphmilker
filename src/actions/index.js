@@ -6,6 +6,7 @@ import getLoginStatus from './fbGetLoginStatus';
 import initApp from './fbInitApp';
 import login from './fbLogin';
 import selectPost from './selectPost';
+import showDetails from './showDetails';
 import switchView from './switchView';
 
 export default {
@@ -17,5 +18,6 @@ export default {
   initApp,
   login,
   selectPost,
+  showDetails,
   switchView
 };

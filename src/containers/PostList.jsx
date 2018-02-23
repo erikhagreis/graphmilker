@@ -51,7 +51,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   getPosts: () => actions.api.getPosts(),
-  selectPost: postId => actions.switchView('postDetails', postId)
+  selectPost: postId => actions.showDetails(postId)
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostList);

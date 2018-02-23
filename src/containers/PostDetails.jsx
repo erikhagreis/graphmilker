@@ -24,10 +24,6 @@ const readableCreatedTime = createdTime => {
 };
 
 class PostDetails extends Component {
-  componentDidMount() {
-    this.props.ensureDetails(this.props.postId);
-  }
-
   getVisual() {
     const { post } = this.props;
     if (!post.detailsLoaded) {
@@ -91,11 +87,10 @@ class PostDetails extends Component {
 
 const mapStateToProps = state => ({
   postId: state.view.detailId,
-  post: state.posts.items.find(post => post.id === state.view.detailId)
+  post: state.posts.selectedPost
 });
 
 const mapDispatchToProps = {
-  ensureDetails: id => actions.ensureDetails(id),
   goBack: () => actions.switchView('posts'),
   selectPost: id => actions.selectPost(id)
 };
