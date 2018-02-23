@@ -41,6 +41,18 @@ export default (state = { items: [] }, action) => {
               [...state.items,  { detailsLoaded: true, ...action.payload }]
       };
 
+    case 'SWITCH_VIEW':
+      const viewName = action.payload.name;
+      const detailId = action.payload.detailId;
+      return viewName === 'postDetails' && detailId 
+        ?
+          {
+            ...state,
+            selectedPost: state.items.find(post => post.id === detailId)
+          }
+        :
+          state;
+
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import './graphmilker.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Initialising from '../components/Initialising';
+import Loading from '../components/Loading';
 import Login from './Login';
 import PostList from './PostList';
 import PostDetails from './PostDetails';
@@ -29,7 +29,7 @@ class GraphMilker extends Component {
           return <Login />;
 
         default:
-          return <Initialising />;
+          return <Loading />;
       }
     };
 
