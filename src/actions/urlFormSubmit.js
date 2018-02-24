@@ -1,19 +1,28 @@
+import { get } from 'lodash';
 import parseUrl from 'url-parse';
 import ensureDetails from './ensureDetails';
+import formUpdateValue from './formUpdateValue';
 import switchView from './switchView';
 
 export default () => {
   return (dispatch, getState) => {
-    const postUrl = getState().formData.postUrlForm.postUrl;
-    const { pageName, pageId } = getState().config;
-    const postId = getPostIdByPostUrl(postUrl, pageName, pageId);
+    const postUrlField = get(getState(), 'formData.postUrlForm.postUrl', {});
+    if (!postUrlField.value) {
+      return dispatch(formUpdateValue('postUrlForm', 'postUrl', '', 
+        `Enter a URL please.`));
+    }
 
-    console.log(postUrl, pageName, pageId, postId);
+
+    const { pageName, pageId } = getState().config;
+    const postId = getPostIdByPostUrl(postUrlField.value, pageName, pageId);
+    console.log('postId', postId);
+
     if (postId) {
       return dispatch(ensureDetails(postId))
         .then(() => dispatch(switchView('postDetails', postId)));
     } else {
-
+      return dispatch(formUpdateValue('postUrlForm', postUrlField.name, postUrlField.value, 
+        `Sorry, Graphmilker does not understand this input.`));
     }  
   };
 };
@@ -29,7 +38,7 @@ function getPostIdByPostUrl(postUrl, pageName, pageId) {
 
   // video in theater mode on desktop site
   // eg: https://www.facebook.com/dewolfficial/videos/vb.168546367204/10155168529917205/?type=2&theater
-  const videoTheaterRegex = /\/([^/]+)\/(?:videos)\/vb.(\d+)\/(\d+)?/i;
+  const videoTheaterRegex = /\/([^/]+)\/(?:videos)\/vb.(\d{12})\/(\d{17})?/i;
   const [ , theaterPart1, theaterPart2, theaterPart3 ] = postUrl.match(videoTheaterRegex) || [];
   if (theaterPart1 === pageName && theaterPart2 && theaterPart3) {
     return `${theaterPart2}_${theaterPart3}`;
@@ -38,7 +47,7 @@ function getPostIdByPostUrl(postUrl, pageName, pageId) {
   // video or post on desktop site
   // eg: https://www.facebook.com/dewolfficial/videos/10153768435627205/
   // eg: https://www.facebook.com/dewolfficial/posts/10153734738707205
-  const desktopUrlRegex = /\/([^/]+)\/(?:videos|posts)\/(\d+)\/?/i
+  const desktopUrlRegex = /\/([^/]+)\/(?:videos|posts)\/(\d{17})\/?/i
   const [ , postPart1, postPart2 ] = postUrl.match(desktopUrlRegex) || [];
   if (postPart1 === pageName && postPart2) {
     return `${pageId}_${postPart2}`;
