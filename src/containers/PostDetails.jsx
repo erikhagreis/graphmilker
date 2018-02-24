@@ -26,9 +26,7 @@ const readableCreatedTime = createdTime => {
 class PostDetails extends Component {
   getVisual() {
     const { post } = this.props;
-    if (!post.detailsLoaded) {
-      return undefined;
-    } else if (post.type === 'video') {
+    if (post.type === 'video') {
       if (post.link) {
         return (
           <PostVideo iframeUrl={post.link} />
@@ -92,7 +90,7 @@ class PostDetails extends Component {
 
 const mapStateToProps = state => ({
   postId: state.view.detailId,
-  post: state.posts.selectedPost
+  post: state.posts.details.find((post) => post.id === state.view.detailId)
 });
 
 const mapDispatchToProps = {

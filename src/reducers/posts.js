@@ -1,6 +1,6 @@
 import { findIndex } from 'lodash';
 
-export default (state = { items: [] }, action) => {
+export default (state = { stubs: [], details: [] }, action) => {
   switch (action.type) {
     case 'GET_POSTS_REQUEST':
     case 'GET_POST_DETAILS_REQUEST':
@@ -23,35 +23,23 @@ export default (state = { items: [] }, action) => {
         ...state,
         fetching: false,
         error: false,
-        items: [...state.items, ...action.payload.data],
+        stubs: [...state.stubs, ...action.payload.data],
         cursors: action.payload.paging.cursors
       };
 
     case 'GET_POST_DETAILS_RESPONSE':
-      const postIndex = findIndex(state.items, { id: action.payload.id });
+      const postIndex = findIndex(state.details, { id: action.payload.id });
       return {
         ...state,
         fetching: false,
         error: false,
-        items:
+        details:
           postIndex > -1
-            ? // replace the existing post object with the incoming one (should be always the case)
-              immutableSplice(state.items, postIndex, 1, { detailsLoaded: true, ...action.payload })
-            : // backup scenario: add the incoming post object to the list
-              [...state.items,  { detailsLoaded: true, ...action.payload }]
+            ? // if a stub exists, replace it (should not happen)
+              immutableSplice(state.details, postIndex, 1, { detailsLoaded: true, ...action.payload })
+            : // else add it
+              [...state.details, action.payload ]
       };
-
-    case 'SWITCH_VIEW':
-      const viewName = action.payload.name;
-      const detailId = action.payload.detailId;
-      return viewName === 'postDetails' && detailId 
-        ?
-          {
-            ...state,
-            selectedPost: state.items.find(post => post.id === detailId)
-          }
-        :
-          state;
 
     default:
       return state;
