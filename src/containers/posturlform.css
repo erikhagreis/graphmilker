@@ -1,0 +1,20 @@
+.gm-postUrlForm {
+  margin: -10px -20px;
+}
+.gm-postUrlForm__field {
+  position: relative;
+}
+.gm-postUrlForm__input {
+  border: none;
+  width: 100%;
+  padding: 10px 75px 10px 20px;
+}
+.gm-postUrlForm__input:focus {
+  outline: 1px dotted #000;
+}
+.gm-postUrlForm__submit {
+  right: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}

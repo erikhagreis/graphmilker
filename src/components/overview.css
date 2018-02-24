@@ -1,0 +1,7 @@
+.gm-overview {
+  display: flex;
+  flex-direction: column;
+}
+.gm-overview > :first-child {
+  margin-bottom: 10px;
+}

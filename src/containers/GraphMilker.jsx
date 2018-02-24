@@ -3,9 +3,10 @@ import './graphmilker.css';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import Error from '../components/Error';
 import Loading from '../components/Loading';
 import Login from './Login';
-import PostList from './PostList';
+import Overview from '../components/Overview';
 import PostDetails from './PostDetails';
 import actions from '../actions';
 
@@ -22,14 +23,17 @@ class GraphMilker extends Component {
         case 'postDetails':
           return <PostDetails />;
 
-        case 'posts':
-          return <PostList />;
+        case 'overview':
+          return <Overview />;
 
         case 'login':
           return <Login />;
 
-        default:
+        case 'loading':
           return <Loading />;
+          
+        default:
+          return <Error type="404" />;
       }
     };
 
@@ -38,7 +42,9 @@ class GraphMilker extends Component {
         <h1 className="gm-graphmilker__title">
           GraphMilker {pageName && `for '${pageName}'`}
         </h1>
-        <div className="gm-graphmilker__main">{getView()}</div>
+        <div className="gm-graphmilker__main">
+          {getView()}
+        </div>
       </div>
     );
   }

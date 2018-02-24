@@ -1,6 +1,27 @@
 import { get, pick, reduce, set } from 'lodash';
 import * as Facebook from 'fb-sdk-wrapper';
 
+export const getPageId = () => {
+  return (dispatch, getState) => {
+      dispatch({type: 'GET_PAGE_ID_REQUEST' });
+
+      return Facebook.api(`/${getState().config.pageName}`, 'get', {
+          access_token: getState().authentication.access_token,
+          fields: 'id'
+        })
+        .then((response) => {
+          if (!response || response.error) {
+            const error = response.error || 'Error occured in getPageId';
+            dispatch({ type: 'GET_PAGE_ID_ERROR', error });
+            throw error;
+          } else {
+            dispatch({ type: 'GET_PAGE_ID_RESPONSE', payload: response });
+            return response;
+          }
+        });
+  };
+}
+
 export const getPosts = () => {
   return (dispatch, getState) => {
     dispatch({ type: 'GET_POSTS_REQUEST' });

@@ -26,7 +26,9 @@
   margin: 0 -20px;
   padding: 0 20px;
 }
-
+.gm-postDetails__body a {
+  color: #365899;
+}
 .gm-postDetails__imageFrame {
   margin: 0 -20px -20px;
   font-size: 0;
