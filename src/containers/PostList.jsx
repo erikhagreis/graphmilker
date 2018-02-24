@@ -36,7 +36,7 @@ class PostList extends Component {
           ))}
           {cursors.after && (
             <li className="gm-postlist__item gm-postlist__item--loadMore">
-              <Button onClick={() => getPosts()}>Load more posts</Button>
+              <Button onClick={() => getPosts()}>＋ Load more posts</Button>
             </li>
           )}
         </ul>

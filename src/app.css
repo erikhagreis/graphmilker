@@ -24,3 +24,11 @@ li {
   font-size: 1.1em;
   margin: 5px 0 10px;
 }
+
+.gm-visuallyhidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px; 
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px; 
+}

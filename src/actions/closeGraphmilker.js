@@ -8,5 +8,5 @@ export default () =>
 
     window.graphmilker.hide();
 
-    dispatch(switchView('posts'));
+    dispatch(switchView('overview'));
   };
