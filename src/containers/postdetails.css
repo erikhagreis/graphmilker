@@ -32,3 +32,17 @@
   font-size: 0;
   line-height: 0;
 }
+
+.gm-postDetails__footer {
+  font-size: 12px;
+  text-align: right;
+}
+
+.gm-postDetails__link {
+  font-size: 12px;
+  color: #90949c;
+}
+.gm-postDetails__link:hover {
+  color: #365899;
+  text-decoration: underline;
+}
