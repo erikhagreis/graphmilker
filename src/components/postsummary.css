@@ -14,13 +14,7 @@
   width: 100%;
 }
 
-.gm-postSummary:focus,
-.gm-postSummary:hover {
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.6);
-}
-
-.gm-postSummary__label {
+.gm-postSummary__headline {
   flex-grow: 0;
 }
 
@@ -30,4 +24,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.gm-postSummary:focus,
+.gm-postSummary:hover {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
 }

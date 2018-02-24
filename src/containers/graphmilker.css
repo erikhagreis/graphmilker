@@ -10,7 +10,7 @@
 }
 
 .gm-graphmilker__title {
-  background-color: rgb(43, 80, 80);
+  background-color: #00BCD4;
   color: #fff;
   flex-basis: auto;
   flex-grow: 0;
@@ -20,7 +20,7 @@
 }
 
 .gm-graphmilker__main {
-  background-color: rgb(226, 243, 242);
+  background-color: #E0F7FA;
   flex-basis: auto;
   flex-grow: 1;
   margin: 0;

@@ -1,8 +1,8 @@
 import './button.css';
 import React from 'react';
 
-export default ({ children, onClick }) => (
-  <button className="gm-button" onClick={onClick}>
+export default ({ children, onClick, type }) => (
+  <button className={`gm-button ${type==='secondary' ? 'gm-button--secondary' : ''}`} onClick={onClick}>
     {children}
   </button>
 );
