@@ -8,14 +8,14 @@ import PostSummary from '../components/PostSummary';
 
 class PostList extends Component {
   componentDidMount() {
-    if (!this.props.posts.items.length) {
+    if (!this.props.posts.stubs.length) {
       this.props.getPosts();
     }
   }
 
   render() {
     const {
-      posts: { items = [], cursors = {} },
+      posts: { stubs = [], cursors = {} },
       getPosts,
       selectPost
     } = this.props;
@@ -26,7 +26,7 @@ class PostList extends Component {
           Select a post from the list:
         </h2>
         <ul className="gm-postlist__list">
-          {items.map(post => (
+          {stubs.map(post => (
             <li className="gm-postlist__item" key={post.id}>
               <PostSummary
                 postData={post}
