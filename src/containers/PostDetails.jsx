@@ -66,7 +66,7 @@ class PostDetails extends Component {
             <Button onClick={() => selectPost(post.id)}>
               ✓ select this post
             </Button>
-            <Button onClick={goBack}>
+            <Button onClick={goBack} type="secondary">
               ◀ back
             </Button>
           </div>
