@@ -1,5 +1,6 @@
 import './posturlform.css';
 
+import { get } from 'lodash';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import actions from '../actions';
@@ -21,20 +22,32 @@ class PostUrlForm extends Component {
             name='postUrl'
             ref='postUrl'
             placeholder='Paste status update link here'
-            value={formData.postUrl || ''}
+            value={get(formData, 'postUrl.value', '')}
             onChange={formUpdateValues} />
           <input
             className='gm-button gm-postUrlForm__submit'
             type='submit'
             value='▶ go' />
         </div>
+        {this.getValidationMessage()}
       </form>
+    );
+  }
+
+  getValidationMessage() {
+    const { formData } = this.props;
+    const validationMessage = get(formData, 'postUrl.validation');
+    if (!validationMessage) {
+      return undefined;
+    }
+    return (
+      <div className="gm-postUrlForm__validationMessage">{validationMessage}</div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  formData: state.formData.postUrlForm || {}
+  formData: get(state, 'formData.postUrlForm', {})
 });
 
 const mapDispatchToProps = (dispatch) => ({

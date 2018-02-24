@@ -1,12 +1,18 @@
 export default (state = {}, action) => {
   switch (action.type) {
     case 'FORM_UPDATE_VALUE':
-      const { formName, fieldName, fieldValue } = action.payload;
+      const { formName, fieldName, fieldValue, fieldValidation } = action.payload;
+      const update = {
+        ...state[ formName ],
+        [ fieldName ]: {
+          name: fieldName,
+          value: fieldValue,
+          validation: fieldValidation
+        }
+      };
       return {
         ...state,
-        [ formName ]: {
-          [ fieldName ]: fieldValue
-        }
+        [ formName ]: update
       };
 
     default:
