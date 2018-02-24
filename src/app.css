@@ -10,13 +10,14 @@ li {
 
 .gm-label {
   padding: 0px 6px;
-  background-color: #1565C0;
+  background: #8b98a1;
   color: #fff;
   border-radius: 2px;
   font-size: 12px;
   font-weight: normal;
+  line-height: 20px;
   text-align: center;
-  min-width: 42px;
+  min-width: 46px;
   display: inline-block;
 }
 

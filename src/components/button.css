@@ -1,5 +1,5 @@
 .gm-button {
-  background: #D81B60;
+  background: rgba(255,112,67,1);
   border: none;
   color: #fff;
   font-size: 12px;
@@ -11,13 +11,13 @@
 .gm-button:focus,
 .gm-button:hover {
   outline: none;
-  background: #AD1457;
+  background: rgba(198,63,23,1);
 }
 
 .gm-button--secondary {
-  background: #607D8B;
+  background: #afb0af;
 }
 .gm-button--secondary:focus,
 .gm-button--secondary:hover {
-  background: #455A64;
+  background: rgba(198,63,23,1);
 }
