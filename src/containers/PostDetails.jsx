@@ -77,6 +77,11 @@ class PostDetails extends Component {
             __html: fbText2html(post.message, post.message_tags)
           }}
         />
+        <div className="gm-postDetails__footer">
+          (<a href={`https://www.facebook.com/${post.id}`} target="_blank" className="gm-postDetails__link">
+            Open post in Facebook
+          </a>)
+        </div>
         <div className="gm-postDetails__imageFrame">
           {this.getVisual()}
         </div>
@@ -91,7 +96,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  goBack: () => actions.switchView('posts'),
+  goBack: () => actions.switchView('overview'),
   selectPost: id => actions.selectPost(id)
 };
 
