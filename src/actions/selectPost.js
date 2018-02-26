@@ -7,7 +7,7 @@ export default postId =>
       payload: { postId }
     });
 
-    const post = getState().posts.items.find(post => post.id === postId);
+    const post = getState().posts.details.find(post => post.id === postId);
     getState().config.onPostSelectedCallback(post);
 
     dispatch(closeGraphmilker());
