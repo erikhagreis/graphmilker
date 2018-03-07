@@ -15,7 +15,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     e.preventDefault();
     dispatch(actions.login()).then(authentication => {
       if (authentication.status === 'connected') {
-        dispatch(actions.switchView('posts'));
+        dispatch(actions.switchView('overview'));
       }
     });
   }
