@@ -2,7 +2,7 @@ import './postdetails.css';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import fbText2html from 'fb-text2html';
+import { text2html } from 'fb-text2html';
 import moment from 'moment';
 
 import actions from '../actions';
@@ -72,7 +72,7 @@ class PostDetails extends Component {
         <div
           className="gm-postDetails__body"
           dangerouslySetInnerHTML={{
-            __html: fbText2html(post.message, post.message_tags)
+            __html: text2html(post.message, post.message_tags)
           }}
         />
         <div className="gm-postDetails__footer">
