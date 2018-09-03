@@ -30,7 +30,7 @@ export default () => {
 function getPostIdByPostUrl(postUrl, pageName, pageId) {
   // photo on desktop site
   // eg: http://www.facebook.com/dewolfficial/photos/a.421091372204.202391.168546367204/10153657659302205/
-  const photoUrlRegex = /\d+\.\d+\.(\d{12})\/(\d{17})/
+  const photoUrlRegex = /\d+\.\d+\.(\d{12})\/(\d{15,17})/
   const [ , photoPart1, photoPart2 ] = postUrl.match(photoUrlRegex) || [];
   if (photoPart1 === pageId && photoPart2) {
     return `${photoPart1}_${photoPart2}`;
@@ -38,7 +38,7 @@ function getPostIdByPostUrl(postUrl, pageName, pageId) {
 
   // video in theater mode on desktop site
   // eg: https://www.facebook.com/dewolfficial/videos/vb.168546367204/10155168529917205/?type=2&theater
-  const videoTheaterRegex = /\/([^/]+)\/(?:videos)\/vb.(\d{12})\/(\d{17})?/i;
+  const videoTheaterRegex = /\/([^/]+)\/(?:videos)\/vb.(\d{12})\/(\d{15,17})?/i;
   const [ , theaterPart1, theaterPart2, theaterPart3 ] = postUrl.match(videoTheaterRegex) || [];
   if (theaterPart1 === pageName && theaterPart2 && theaterPart3) {
     return `${theaterPart2}_${theaterPart3}`;
@@ -47,7 +47,7 @@ function getPostIdByPostUrl(postUrl, pageName, pageId) {
   // video or post on desktop site
   // eg: https://www.facebook.com/dewolfficial/videos/10153768435627205/
   // eg: https://www.facebook.com/dewolfficial/posts/10153734738707205
-  const desktopUrlRegex = /\/([^/]+)\/(?:videos|posts)\/(\d{17})\/?/i
+  const desktopUrlRegex = /\/([^/]+)\/(?:videos|posts)\/(\d{15,17})\/?/i
   const [ , postPart1, postPart2 ] = postUrl.match(desktopUrlRegex) || [];
   if (postPart1 === pageName && postPart2) {
     return `${pageId}_${postPart2}`;
