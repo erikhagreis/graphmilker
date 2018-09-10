@@ -29,11 +29,12 @@ export default () => {
 
 function getPostIdByPostUrl(postUrl, pageName, pageId) {
   // photo on desktop site
+  // eg: https://www.facebook.com/birthofjoy/photos/a.195350553819898/1356483684373240/?type=3
   // eg: http://www.facebook.com/dewolfficial/photos/a.421091372204.202391.168546367204/10153657659302205/
-  const photoUrlRegex = /\d+\.\d+\.(\d{12})\/(\d{15,17})/
+  const photoUrlRegex = /\/([^/]+)\/photos\/a\.(?:\d+\.\d+\.)?\d{12,15}\/(\d{15,17})/i;
   const [ , photoPart1, photoPart2 ] = postUrl.match(photoUrlRegex) || [];
-  if (photoPart1 === pageId && photoPart2) {
-    return `${photoPart1}_${photoPart2}`;
+  if (photoPart1 === pageName && photoPart2) {
+    return `${pageId}_${photoPart2}`;
   }
 
   // video in theater mode on desktop site
