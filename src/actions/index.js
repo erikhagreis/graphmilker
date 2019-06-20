@@ -1,23 +1,22 @@
-import * as api from './fbApi';
-import boot from './boot';
+import * as pageApi from './fbPageApi';
+import * as userApi from './fbUserApi';
+import { boot, login } from './boot';
 import closeGraphmilker from './closeGraphmilker';
 import ensureDetails from './ensureDetails';
 import formUpdateValue from './formUpdateValue';
-import getLoginStatus from './fbGetLoginStatus';
 import initApp from './fbInitApp';
-import login from './fbLogin';
 import selectPost from './selectPost';
 import showDetails from './showDetails';
 import switchView from './switchView';
 import urlFormSubmit from './urlFormSubmit';
 
 export default {
-  api,
+  userApi,
+  pageApi,
   boot,
   closeGraphmilker,
   ensureDetails,
   formUpdateValue,
-  getLoginStatus,
   initApp,
   login,
   selectPost,

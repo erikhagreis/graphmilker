@@ -1,17 +1,21 @@
 import { combineReducers } from 'redux';
 
-import authentication from './authentication';
+import userAuth from './userAuth';
 import config from './config';
 import formData from './formData';
+import pageAuth from './pageAuth';
+import permissions from './permissions';
 import posts from './posts';
 import view from './view';
 
 const graphmilkerState = combineReducers({
-  authentication,
   config,
   formData,
+  pageAuth,
+  permissions,
   posts,
-  view
+  userAuth,
+  view,
 });
 
 export default graphmilkerState;

@@ -10,13 +10,13 @@ export default (state = {}, action) => {
       return {
         ...state,
         pending: false,
-        ...action.payload
+        ...action.data
       };
 
     case 'GET_PAGE_ID_RESPONSE':
       return {
         ...state,
-        pageId: action.payload.id
+        pageId: action.data.id
       }
 
     default:

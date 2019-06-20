@@ -51,7 +51,7 @@
           //
           // Example given here is a test Graphmilker app, working for sites running on localhost
           // Feel free to use it while testing / developing.
-          appId: '156444731650308',
+          appId: '778168242585418',
 
           // The name of the FB page to browse. Taken from it's url; ie:
           // https://www.facebook.com/dewolfficial
@@ -63,20 +63,20 @@
             window.graphmilker.hide();
           }
         });
-        
+
         // Convert a click on a button to a call to window.graphmilker.show();
         document
           .getElementById('startButton')
           .addEventListener('click', function(e) {
             window.graphmilker.show();
-          });      
+          });
 
-        // Do something with the incoming post data. 
-        // Here it's just displayed in a box; typically you'd take the data and insert it into the CMS 
+        // Do something with the incoming post data.
+        // Here it's just displayed in a box; typically you'd take the data and insert it into the CMS
         // database, so it will be accessible later on without any Facebook authorisation.
         function showPost(postData) {
           var postJSONel = document.getElementById('postJSON');
-          postJSONel.innerHTML = 
+          postJSONel.innerHTML =
             '<code class="code js">' + JSON.stringify(postData, true, 2) + '</code>';
         }
 
@@ -85,6 +85,6 @@
           window.graphmilker.show();
         }
       });
-    </script>    
+    </script>
   </body>
 </html>

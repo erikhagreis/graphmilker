@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import parseUrl from 'url-parse';
+import parseUrl from 'parse-url';
 import ensureDetails from './ensureDetails';
 import formUpdateValue from './formUpdateValue';
 import switchView from './switchView';
@@ -8,22 +8,21 @@ export default () => {
   return (dispatch, getState) => {
     const postUrlField = get(getState(), 'formData.postUrlForm.postUrl', {});
     if (!postUrlField.value) {
-      return dispatch(formUpdateValue('postUrlForm', 'postUrl', '', 
+      return dispatch(formUpdateValue('postUrlForm', 'postUrl', '',
         `Enter a URL please.`));
     }
 
-
-    const { pageName, pageId } = getState().config;
+    const pageName = get(getState(), 'config.pageName');
+    const pageId = get(getState(), `pageAuth.${pageName}.id`);
     const postId = getPostIdByPostUrl(postUrlField.value, pageName, pageId);
-    console.log('postId', postId);
 
     if (postId) {
       return dispatch(ensureDetails(postId))
         .then(() => dispatch(switchView('postDetails', postId)));
     } else {
-      return dispatch(formUpdateValue('postUrlForm', postUrlField.name, postUrlField.value, 
+      return dispatch(formUpdateValue('postUrlForm', postUrlField.name, postUrlField.value,
         `Sorry, Graphmilker does not understand this input.`));
-    }  
+    }
   };
 };
 
@@ -57,7 +56,7 @@ function getPostIdByPostUrl(postUrl, pageName, pageId) {
   // video on mobile site
   // eg: https://m.facebook.com/story.php?story_fbid=10153768435627205&id=168546367204
   const queryParams = parseUrl(postUrl).query;
-  if (queryParams.story_fbid && queryParams.id === pageName) {
+  if (queryParams.story_fbid && queryParams.id === pageId) {
     return `${queryParams.id}_${queryParams.story_fbid}`;
   }
 

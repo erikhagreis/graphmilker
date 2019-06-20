@@ -50,7 +50,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  getPosts: () => actions.api.getPosts(),
+  getPosts: () => actions.pageApi.getPosts(),
   selectPost: postId => actions.showDetails(postId)
 };
 

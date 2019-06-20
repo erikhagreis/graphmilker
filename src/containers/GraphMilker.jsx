@@ -31,7 +31,7 @@ class GraphMilker extends Component {
 
         case 'loading':
           return <Loading />;
-          
+
         default:
           return <Error type="404" />;
       }

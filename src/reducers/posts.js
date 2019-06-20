@@ -23,12 +23,12 @@ export default (state = { stubs: [], details: [] }, action) => {
         ...state,
         fetching: false,
         error: false,
-        stubs: [...state.stubs, ...action.payload.data],
-        cursors: action.payload.paging.cursors
+        stubs: [ ...state.stubs, ...action.data.posts ],
+        cursors: action.data.paging.cursors
       };
 
     case 'GET_POST_DETAILS_RESPONSE':
-      const postIndex = findIndex(state.details, { id: action.payload.id });
+      const postIndex = findIndex(state.details, { id: action.data.id });
       return {
         ...state,
         fetching: false,
@@ -36,9 +36,9 @@ export default (state = { stubs: [], details: [] }, action) => {
         details:
           postIndex > -1
             ? // if a stub exists, replace it (should not happen)
-              immutableSplice(state.details, postIndex, 1, { detailsLoaded: true, ...action.payload })
+              immutableSplice(state.details, postIndex, 1, { detailsLoaded: true, ...action.data })
             : // else add it
-              [...state.details, action.payload ]
+              [...state.details, action.data ]
       };
 
     default:
