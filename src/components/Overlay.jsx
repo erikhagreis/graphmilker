@@ -1,4 +1,4 @@
-import './overlay.css';
+import './overlay.scss';
 import React from 'react';
 import { noop } from 'lodash';
 

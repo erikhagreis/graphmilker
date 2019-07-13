@@ -1,0 +1,25 @@
+#graphmilker {
+  .gm-button {
+    background: rgba(255,112,67,1);
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  .gm-button:focus,
+  .gm-button:hover {
+    outline: none;
+    background: rgba(198,63,23,1);
+  }
+
+  .gm-button--secondary {
+    background: #afb0af;
+  }
+  .gm-button--secondary:focus,
+  .gm-button--secondary:hover {
+    background: rgba(198,63,23,1);
+  }
+}

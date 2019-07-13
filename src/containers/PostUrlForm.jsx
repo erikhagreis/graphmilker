@@ -1,4 +1,4 @@
-import './posturlform.css';
+import './posturlform.scss';
 
 import { get } from 'lodash';
 import { connect } from 'react-redux';
@@ -57,7 +57,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   formUpdateValues: (event) => {
     return dispatch(actions.formUpdateValue('postUrlForm', event.target.name, event.target.value))
-  } 
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostUrlForm);

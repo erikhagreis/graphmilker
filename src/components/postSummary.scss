@@ -1,0 +1,35 @@
+#graphmilker {
+  .gm-postSummary {
+    appearance: none;
+    background: none;
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: flex;
+    font-size: 1em;
+    line-height: 1.5;
+    margin: 0;
+    padding: 10px 20px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+  }
+
+  .gm-postSummary__headline {
+    flex-grow: 0;
+  }
+
+  .gm-postSummary__headline {
+    flex-grow: 1;
+    margin: 0 0 0 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .gm-postSummary:focus,
+  .gm-postSummary:hover {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+}

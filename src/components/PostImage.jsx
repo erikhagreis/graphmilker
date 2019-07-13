@@ -1,4 +1,4 @@
-import './postImage.css';
+import './postImage.scss';
 import React from 'react';
 
 export default ({ imageUrl }) => (

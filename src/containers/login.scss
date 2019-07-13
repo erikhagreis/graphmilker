@@ -1,0 +1,31 @@
+#graphmilker {
+  .gm-login {
+    left: 50%;
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .gm-login__main {
+    margin: 0 50px;
+  }
+
+  .gm-login__error {
+    text-align: left;
+    padding: 10px 15px;
+    background:  hsla(2, 84%, 50%, 0.20);
+    margin-bottom: 1em;
+  }
+
+  .gm-login__errorHeader {
+    font-size: 14px;
+    margin: 0 0 0.5em 0;
+  }
+
+  .gm-login__errorText {
+    font-size: 14px;
+    margin: 0.5em 0;
+  }
+}

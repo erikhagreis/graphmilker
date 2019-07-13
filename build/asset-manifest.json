@@ -1,6 +1,15 @@
 {
-  "main.css": "static/css/main.css",
-  "main.css.map": "static/css/main.css.map",
-  "main.js": "static/js/main.js",
-  "main.js.map": "static/js/main.js.map"
+  "files": {
+    "main.css": "./graphmilker2/static/css/main.4922eb3d.chunk.css",
+    "main.js": "./graphmilker2/static/js/main.32dd664a.chunk.js",
+    "main.js.map": "./graphmilker2/static/js/main.32dd664a.chunk.js.map",
+    "runtime~main.js": "./graphmilker2/static/js/runtime~main.f21c5b32.js",
+    "runtime~main.js.map": "./graphmilker2/static/js/runtime~main.f21c5b32.js.map",
+    "static/js/2.0e75a750.chunk.js": "./graphmilker2/static/js/2.0e75a750.chunk.js",
+    "static/js/2.0e75a750.chunk.js.map": "./graphmilker2/static/js/2.0e75a750.chunk.js.map",
+    "index.html": "./graphmilker2/index.html",
+    "precache-manifest.2c9c8328a3e40263b81fbb709562f2e7.js": "./graphmilker2/precache-manifest.2c9c8328a3e40263b81fbb709562f2e7.js",
+    "service-worker.js": "./graphmilker2/service-worker.js",
+    "static/css/main.4922eb3d.chunk.css.map": "./graphmilker2/static/css/main.4922eb3d.chunk.css.map"
+  }
 }

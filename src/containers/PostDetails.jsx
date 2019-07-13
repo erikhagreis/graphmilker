@@ -1,4 +1,4 @@
-import './postdetails.css';
+import './postdetails.scss';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -34,9 +34,9 @@ class PostDetails extends Component {
       }
     } else if(post.type === 'link') {
       return (
-        <PostLinkBlock 
-          imageUrl={post.full_picture} 
-          title={post.og_title} 
+        <PostLinkBlock
+          imageUrl={post.full_picture}
+          title={post.og_title}
           description={post.og_description}
           linkUrl={post.og_url}
         />
@@ -76,7 +76,7 @@ class PostDetails extends Component {
           }}
         />
         <div className="gm-postDetails__footer">
-          (<a href={`https://www.facebook.com/${post.id}`} target="_blank" className="gm-postDetails__link">
+          (<a href={`https://www.facebook.com/${post.id}`} target="_blank" className="gm-postDetails__link" rel="noopener noreferrer">
             Open post in Facebook
           </a>)
         </div>

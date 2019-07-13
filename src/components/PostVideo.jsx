@@ -1,4 +1,4 @@
-import './postVideo.css';
+import './postVideo.scss';
 import React from 'react';
 
 export default ({ iframeUrl = '' }) => {

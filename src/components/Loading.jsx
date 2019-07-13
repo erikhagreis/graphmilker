@@ -1,4 +1,4 @@
-import './loading.css';
+import './loading.scss';
 import React from 'react';
 
 export default () => (

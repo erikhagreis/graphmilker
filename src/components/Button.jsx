@@ -1,4 +1,4 @@
-import './button.css';
+import './button.scss';
 import React from 'react';
 
 export default ({ children, onClick, type }) => (

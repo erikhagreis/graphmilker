@@ -1,4 +1,4 @@
-import './overview.css';
+import './overview.scss';
 
 import React from 'react';
 import PostList from '../containers/PostList';

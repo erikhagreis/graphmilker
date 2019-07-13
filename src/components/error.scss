@@ -1,0 +1,11 @@
+#graphmilker {
+  .gm-error {
+    color: rgba(255,0,0,0.5);
+    left: 50%;
+    max-width: 350px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

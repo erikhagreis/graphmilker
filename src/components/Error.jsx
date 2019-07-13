@@ -1,4 +1,4 @@
-import './error.css';
+import './error.scss';
 import React from 'react';
 
 export default ({type = 'unknown'}) => (

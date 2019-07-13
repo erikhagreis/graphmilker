@@ -1,4 +1,4 @@
-import './postSummary.css';
+import './postSummary.scss';
 import React from 'react';
 
 export default ({ postData, selectPost }) => (

@@ -1,4 +1,4 @@
-import './graphmilker.css';
+import './graphmilker.scss';
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
