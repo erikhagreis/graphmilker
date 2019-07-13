@@ -12,7 +12,6 @@
     "tool",
     "browser-only"
   ],
-  "private": true,
   "dependencies": {
     "fb-sdk-wrapper": "^0.3.0",
     "fb-text2html": "^2.1.0",
